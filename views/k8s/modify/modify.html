@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>k8s 管理平台</title>
+        <!-- <link type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" /> -->
+        {{ assets_css "/static/components/bootstrap-4.5.0/css/bootstrap.min.css" }}
+        <style>
+            body {
+                padding-top: 60px;
+            }
+        </style>
+    </head>
+    <body>
+      {{ template "templates/k8shead.html" . }}
+      {{ assets_js "/static/components/jquery/jquery-3.5.1.min.js" }}
+      {{ assets_js "/static/components/bootstrap-4.5.0/js/bootstrap.bundle.min.js" }}
+        <div class="row">
+            <div class="col-4">
+                <form action="{{ urlfor `DeploymentController.Modify` }}" method="POST">
+                    <input type="hidden" name="_xsrf" value="{{ .xsrf_token }}" />
+                    <input class="form-control" type="hidden" name="namespace" value="{{ .form.Namespace }}"/>
+                    <input class="form-control" type="hidden" name="name" value="{{ .form.Name }}"/>
+                    <div class="form-group row">
+                        <label class="col-form-label col-2 pt-0">镜像</label>
+                        <div class="col-6">
+                            <input class="form-control" name="image" value="{{ .form.Image }}"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-2 pt-0">副本数量</label>
+                        <div class="col-6">
+                            <input class="form-control" type="number" name="replicas" value="{{ .form.Replicas }}"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-2">暴露端口</label>
+                        <div class="col-6">
+                            <textarea class="form-control" name="expose" >{{ .form.Expose }}</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-8 offset-2">
+                            <input class="btn btn-primary" type="submit" value="修改"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
