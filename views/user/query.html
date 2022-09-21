@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>用户管理</title>
+         <!-- <link type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" /> -->
+         {{ assets_css "/static/components/bootstrap-4.5.0/css/bootstrap.min.css" }}
+         <style>
+             body {
+                 padding-top: 70px;
+             }
+         </style>
+    </head>
+    <body class="m-0">
+      {{ template "templates/head.html" . }}
+        <!-- <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">k8s management</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ urlfor `HomeController.Index` }}">首页</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="{{ urlfor `UserController.Query` }}">用户管理</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">任务管理</a>
+                </li>
+              </ul>
+              <form class="form-inline my-2 my-lg-1">
+                <label class="form-control-label mr-sm-5 btn-link navbar-dark bg-dark">登陆用户为{{ .LoginUser.Name }}</label>
+                <a class="btn btn-link navbar-dark bg-dark" href="{{ urlfor `AuthController.Loginout` }}">退出登录</a>
+              </form>
+            </div>
+          </nav> -->
+      {{ if .flash.notice }}
+              <div class="alert alert-primary col" role="alert">
+                  {{ .flash.notice }}
+              </div>
+      {{ end }}
+
+      <div class="col-1">
+          <a href="{{ urlfor `UserController.Create` }}" class="btn btn-primary float-left"  method="GET">新建用户</a>
+      </div>
+
+      <div class="col-12">
+        <form class="form-inline mb-2 float-right" action="{{ urlfor `UserController.Query` }}" method="GET">
+          <div class="form-group mr-2">
+            <label class="sr-only">查询</label>
+            <input class="form-control" name="q" value="{{ .q }}" />
+          </div>
+          <div class="form-group">  
+            <input type="submit" class="btn btn-outline-secondary" value="查询"/>
+          </div>
+        </form>
+      </div>
+
+        <table class="table table-sm table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>员工编号</th>
+                    <th>用户名</th>
+                    <th>姓名</th>
+                    <th>电话</th>
+                    <th>地址</th>
+                    <th>部门</th>
+                    <th>邮箱</th>
+                    <th>状态</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{ range .users }}
+                    <tr>
+                        <td>{{ .StaffID }}</td>
+                        <td>{{ .Name }}</td>
+                        <td>{{ .Nickname }}</td>
+                        <td>{{ .Tel }}</td>
+                        <td>{{ .Addr }}</td>
+                        <td>{{ .Department }}</td>
+                        <td>{{ .Email }}</td>
+                        <td>{{ .Status }}</td>
+                        <td>
+                              <a href="{{ urlfor `UserController.Modify` }}?k1={{ .ID }}" class="btn btn-sm col-3 btn-info">编辑</a> 
+                            {{ if ne $.LoginUser.ID .ID }}                     
+                                <a href="{{ urlfor `UserController.Delete` }}?k2={{ .ID }}" class="btn btn-sm col-3 btn-danger">删除</a>  
+                            {{ end }}
+                            <!-- {{ if eq $.LoginUser.Gender 0 }} -->
+                            <!-- {{ end }}   -->
+                        </td>
+                    </tr>
+                {{ end }}
+            </tbody>
+        </table>
+    </body>
+</html>

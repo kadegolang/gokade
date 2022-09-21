@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>增加用户</title>
+         <!-- <link type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" /> -->
+         {{ assets_css "/static/components/bootstrap-4.5.0/css/bootstrap.min.css" }}
+         <style>
+             body {
+                 padding-top: 70px;
+             }
+         </style>
+    </head>
+    <body>
+     {{ template "templates/head.html" . }}
+           <div class="container mt-5 offset-4">       
+                <form action="/user/create/" class="" method="POST">
+                    <input type="hidden" name="_xsrf" value="{{ .xsrf_token }}"/> 
+
+                    <div class="form-group row-3">
+                        <label class="col-form-label col-3">员工编号</label>
+                        <div class="col-5">
+                            <input class="form-control {{ if .errors.staffid }}is-invalid{{ end }}" name="staffid" value="{{ .StaffID }}"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group row-2">
+                        <label class="col-form-label col-3">用户名</label>
+                        <div class="col-5">
+                            <input class="form-control {{ if .errors.name }}is-invalid{{ end }}" name="name" value="{{ .form.Name }}"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group row-2">
+                        <label class="col-form-label col-3">姓名</label>
+                        <div class="col-5">
+                            <input class="form-control {{ if .errors.name }}is-invalid{{ end }}" name="nickname" value="{{ .form.Nickname }}"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group row-2">
+                        <label class="col-form-label col-3">密码</label>
+                        <div class="col-5">
+                            <input class="form-control {{ if .errors.password }}is-invalid{{ end }}" name="password" type="password" value=""/>
+                            {{ if .errors.id }}
+                            <div class="invalid-feedback">
+                                {{ index .errors.id 0 }}
+                            </div>
+                            {{ end }}
+                        </div>
+                    </div>
+
+                    <div class="form-group row-2">
+                        <label class="col-form-label col-3">电话</label>
+                        <div class="col-5">
+                            <input class="form-control {{ if .errors.tel }}is-invalid{{ end }}" name="tel" value="{{ .form.Tel }}"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group row-2">
+                        <label class="col-form-label col-3">地址</label>
+                        <div class="col-5">
+                            <input class="form-control {{ if .errors.addr }}is-invalid{{ end }}" name="addr" value="{{ .form.Addr }}"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group row-2">
+                        <label class="col-form-label col-3">部门</label>
+                        <div class="col-5">
+                            <input class="form-control {{ if .errors.department }}is-invalid{{ end }}" name="department" value="{{ .form.Department }}"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group row-2">
+                        <label class="col-form-label col-3">邮箱</label>
+                        <div class="col-5">
+                            <input class="form-control {{ if .errors.email }}is-invalid{{ end }}" name="email" value="{{ .form.Email }}"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group row-2">
+                        <label class="col-form-label col-3">状态</label>
+                        <div class="col-5">
+                            <input class="form-control {{ if .errors.status }}is-invalid{{ end }}" name="status" value="{{ .form.Status }}"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-1 offset-1">
+                            <input class="btn btn-primary" style="width:150px; height:40px;"  type="submit" value="创建用户"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+    </body>
+</html>

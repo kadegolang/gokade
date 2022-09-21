@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>k8s 管理平台</title>
+        <!-- <link type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" /> -->
+        {{ assets_css "/static/components/bootstrap-4.5.0/css/bootstrap.min.css" }}
+        <style>
+            body {
+                padding-top: 60px;
+            }
+        </style>
+    </head>
+    <body>
+      {{ template "templates/head.html" . }}
+      <!-- <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">k8s management</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{{ urlfor `HomeController.Index` }}">首页</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ urlfor `UserController.Query` }}">用户管理</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">任务管理</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-1">
+            <label class="form-control-label mr-sm-5 btn-link navbar-dark bg-dark">登陆用户为{{ .LoginUser.Name }}</label>
+            <a class="btn btn-link navbar-dark bg-dark" href="{{ urlfor `AuthController.Loginout` }}">退出登录</a>
+          </form>
+        </div>
+      </nav> -->
+          <!-- <div class="container-fluid">
+              <div class="row"> 
+              </div>
+          </div> -->
+        <div class="container-fluid m-2">
+            <div class="row">
+                <div class="col-1">
+                    首页
+                </div>
+            </div>
+        </div>    
+    </body>
+</html>

@@ -1,0 +1,15 @@
+2022/09/21 08:37:48.900 [D] [server.go:2916]  |      127.0.0.1|[97;42m 200 [0m| 114.611291ms|   match|[97;44m GET     [0m /daemonset/query   r:/daemonset/query/*
+2022/09/21 08:37:50.016 [D] [server.go:2916]  |      127.0.0.1|[90;47m 302 [0m|     449.75µs|   match|[97;44m GET     [0m /user/query   r:/user/query/*
+2022/09/21 08:37:50.019 [D] [server.go:2916]  |      127.0.0.1|[97;42m 200 [0m|   1.262542ms|   match|[97;44m GET     [0m /auth/login   r:/auth/login/*
+2022/09/21 08:37:56.852 [I] [auth.go:47]  用户认证成功：kade 
+2022/09/21 08:37:56.871 [D] [server.go:2916]  |      127.0.0.1|[90;47m 302 [0m| 236.869917ms|   match|[97;46m POST    [0m /auth/login   r:/auth/login/*
+2022/09/21 08:37:56.911 [D] [server.go:2916]  |      127.0.0.1|[97;42m 200 [0m|  37.491959ms|   match|[97;44m GET     [0m /home/index   r:/home/index/*
+2022/09/21 08:37:58.320 [D] [server.go:2916]  |      127.0.0.1|[97;42m 200 [0m|  70.485709ms|   match|[97;44m GET     [0m /user/query   r:/user/query/*
+2022/09/21 08:38:00.530 [D] [server.go:2916]  |      127.0.0.1|[97;42m 200 [0m|     95.892ms|   match|[97;44m GET     [0m /deployment/querypod   r:/deployment/querypod/*
+2022/09/21 08:38:01.089 [D] [server.go:2916]  |      127.0.0.1|[97;42m 200 [0m|  54.562917ms|   match|[97;44m GET     [0m /user/query   r:/user/query/*
+2022/09/21 08:38:01.759 [D] [server.go:2916]  |      127.0.0.1|[97;42m 200 [0m|  30.410125ms|   match|[97;44m GET     [0m /user/create   r:/user/create/*
+2022/09/21 08:38:03.818 [D] [server.go:2916]  |      127.0.0.1|[97;42m 200 [0m|  114.05525ms|   match|[97;44m GET     [0m /deployment/querypod   r:/deployment/querypod/*
+2022/09/21 08:38:05.047 [D] [server.go:2916]  |      127.0.0.1|[97;42m 200 [0m|  82.553959ms|   match|[97;44m GET     [0m /deployment/querypod   r:/deployment/querypod/*
+2022/09/21 08:38:07.662 [D] [server.go:2916]  |      127.0.0.1|[97;42m 200 [0m|  60.956875ms|   match|[97;44m GET     [0m /deployment/query   r:/deployment/query/*
+2022/09/21 08:38:09.195 [D] [server.go:2916]  |      127.0.0.1|[97;42m 200 [0m|  31.891542ms|   match|[97;44m GET     [0m /deployment/create   r:/deployment/create/*
+2022/09/21 08:38:12.973 [D] [server.go:2916]  |      127.0.0.1|[97;42m 200 [0m|  38.604375ms|   match|[97;44m GET     [0m /svc/querysvc   r:/svc/querysvc/*
